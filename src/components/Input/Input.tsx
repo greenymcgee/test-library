@@ -22,7 +22,7 @@ const ignoredCharacterSets: Partial<Record<InputType, RegExp>> = {
 };
 
 export default function Input(props: InputProps): ReactElement {
-  const [isPasswordShowing, setPasswordShowing] = useState(false);
+  // const [isPasswordShowing, setPasswordShowing] = useState(false);
 
   const {
     autocomplete,
@@ -59,9 +59,9 @@ export default function Input(props: InputProps): ReactElement {
           border="1px solid"
           borderColor={error ? 'red.500' : 'gray.400'}
           backgroundColor={error ? 'red.200' : 'gray.200'}
-          type={isPasswordShowing ? 'text' : types[type] ?? type}
+          // type={isPasswordShowing ? 'text' : types[type] ?? type}
         />
-        {type === 'password' && (
+        {/* {type === 'password' && (
           <InputRightElement height="100%" mr="2">
             <PasswordToggleIcon
               fill={error ? 'red.500' : 'gray.500'}
@@ -71,7 +71,7 @@ export default function Input(props: InputProps): ReactElement {
               title={`${isPasswordShowing ? 'Hide' : 'Show'} Password`}
             />
           </InputRightElement>
-        )}
+        )} */}
       </InputGroup>
     </FormFieldWrapper>
   );
