@@ -1,5 +1,8 @@
 {
-  "name": "@above-lending/react-ui",
+  "name": "@greenymcgee/test-library",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/<greenymcgee>"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
