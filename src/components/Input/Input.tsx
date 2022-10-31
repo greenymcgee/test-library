@@ -1,19 +1,14 @@
-import {
-  Input as ChakraInput,
-  InputGroup,
-  InputRightElement,
-} from '@chakra-ui/react';
-import React, { ReactElement, useState } from 'react';
+import { Input as ChakraInput, InputGroup } from '@chakra-ui/react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { compose, noop } from '@above-lending/prelude';
-import FormFieldWrapper from '../FormFieldWrapper/FormFieldWrapper';
+// import FormFieldWrapper from '../FormFieldWrapper/FormFieldWrapper';
 import { InputProps, InputType } from './Input.types';
-import { PasswordToggleIcon } from './PasswordToggleIcon';
 
-const types: Partial<Record<InputType, InputType>> = {
-  currency: 'text',
-  number: 'text',
-  phone: 'text',
-};
+// const types: Partial<Record<InputType, InputType>> = {
+//   currency: 'text',
+//   number: 'text',
+//   phone: 'text',
+// };
 
 const ignoredCharacterSets: Partial<Record<InputType, RegExp>> = {
   currency: /[^0-9.$,]+/g,
@@ -21,47 +16,44 @@ const ignoredCharacterSets: Partial<Record<InputType, RegExp>> = {
   phone: /[^0-9.\-()+ ]+/g,
 };
 
-export default function Input(props: InputProps): ReactElement {
+function replaceCharacters(type: InputType) {
+  return (event: ChangeEvent<HTMLInputElement>): ChangeEvent => {
+    const set = ignoredCharacterSets[type];
+
+    if (set) event.target.value = event.target.value.replace(set, '');
+
+    return event;
+  };
+}
+
+export default function Input({
+  autocomplete,
+  name,
+  type = 'text',
+  onChange = noop,
+  ...options
+}: InputProps): ReactElement {
   // const [isPasswordShowing, setPasswordShowing] = useState(false);
 
-  const {
-    autocomplete,
-    error,
-    name,
-    type = 'text',
-    onChange = noop,
-    ...rest
-  } = props;
-
-  const handleChange = compose(onChange, (e) => {
-    e.target.value = ignoredCharacterSets[type]
-      ? e.target.value.replace(ignoredCharacterSets[type], '')
-      : e.target.value;
-
-    return e;
-  });
+  const handleChange = compose(onChange, replaceCharacters(type));
 
   return (
-    <FormFieldWrapper {...props}>
-      <InputGroup>
-        <ChakraInput
-          data-testid={`${name}-input`}
-          width="full"
-          {...rest}
-          autoComplete={autocomplete ?? 'on'}
-          px="2"
-          lineHeight="1.875rem"
-          fontSize="md"
-          id={name}
-          name={name}
-          onChange={handleChange}
-          outline="none"
-          border="1px solid"
-          borderColor={error ? 'red.500' : 'gray.400'}
-          backgroundColor={error ? 'red.200' : 'gray.200'}
-          // type={isPasswordShowing ? 'text' : types[type] ?? type}
-        />
-        {/* {type === 'password' && (
+    <InputGroup>
+      <ChakraInput
+        autoComplete={autocomplete ?? 'on'}
+        border="1px solid"
+        fontSize="md"
+        id={name}
+        lineHeight="1.875rem"
+        name={name}
+        onChange={handleChange}
+        outline="none"
+        px="2"
+        // type={isPasswordShowing ? 'text' : types[type] ?? type}
+        width="full"
+        {...options}
+      />
+      {/* {type === 'password' && (
           <InputRightElement height="100%" mr="2">
             <PasswordToggleIcon
               fill={error ? 'red.500' : 'gray.500'}
@@ -72,7 +64,6 @@ export default function Input(props: InputProps): ReactElement {
             />
           </InputRightElement>
         )} */}
-      </InputGroup>
-    </FormFieldWrapper>
+    </InputGroup>
   );
 }
