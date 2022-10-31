@@ -1,31 +1,24 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
-import {
-  Box,
-  Flex,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Text,
-} from '@chakra-ui/react'
+import { Flex, FormControl, FormLabel } from '@chakra-ui/react'
 import Tooltip from '../Tooltip'
 import { FormFieldWrapperProps } from './FormFieldWrapper.types'
 import SecondaryLabel from '../SecondaryLabel'
+import FormFieldHelperMessage from '../FormFieldHelperMessage/FormFieldHelperMessage'
 
 export default function FormFieldWrapper({
   children,
   error,
-  isRequired,
+  helperMessage,
   label,
   name,
-  tooltipMessage,
   secondaryLabel,
-  helper,
+  tooltipMessage,
   ...options
 }: PropsWithChildren<FormFieldWrapperProps>): ReactElement {
   const isInvalid = Boolean(error)
 
   return (
-    <FormControl isInvalid={isInvalid} isRequired={isRequired} {...options}>
+    <FormControl as="fieldset" isInvalid={isInvalid} {...options}>
       <Flex>
         <FormLabel
           color="inherit"
@@ -42,15 +35,7 @@ export default function FormFieldWrapper({
         <Tooltip message={tooltipMessage} marginLeft="3" />
       </Flex>
       {children}
-      {isInvalid ? (
-        <FormErrorMessage color="red.500" fontSize={{ base: 'xs', lg: 'xxs' }}>
-          {error}
-        </FormErrorMessage>
-      ) : (
-        <Box minHeight="17px" data-testid="form-field-error-placeholder">
-          <Text fontSize="xs">{helper}</Text>
-        </Box>
-      )}
+      <FormFieldHelperMessage error={error} helperMessage={helperMessage} />
     </FormControl>
   )
 }
