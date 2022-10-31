@@ -1,7 +1,5 @@
 import {
-  HStack,
   Input as ChakraInput,
-  InputProps as ChakraInputProps,
   InputGroup,
   InputRightElement,
 } from '@chakra-ui/react';
@@ -46,7 +44,7 @@ export default function Input(props: InputProps): ReactElement {
   return (
     <FormFieldWrapper {...props}>
       <InputGroup>
-        <Input
+        <ChakraInput
           data-testid={`${name}-input`}
           width="full"
           {...rest}
