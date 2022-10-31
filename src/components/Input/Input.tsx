@@ -10,21 +10,21 @@ import { InputProps, InputType } from './Input.types';
 //   phone: 'text',
 // };
 
-const ignoredCharacterSets: Partial<Record<InputType, RegExp>> = {
-  currency: /[^0-9.$,]+/g,
-  number: /[^0-9.]+/g,
-  phone: /[^0-9.\-()+ ]+/g,
-};
+// const ignoredCharacterSets: Partial<Record<InputType, RegExp>> = {
+//   currency: /[^0-9.$,]+/g,
+//   number: /[^0-9.]+/g,
+//   phone: /[^0-9.\-()+ ]+/g,
+// };
 
-function replaceCharacters(type: InputType) {
-  return (event: ChangeEvent<HTMLInputElement>): ChangeEvent => {
-    const set = ignoredCharacterSets[type];
+// function replaceCharacters(type: InputType) {
+//   return (event: ChangeEvent<HTMLInputElement>): ChangeEvent => {
+//     const set = ignoredCharacterSets[type];
 
-    if (set) event.target.value = event.target.value.replace(set, '');
+//     if (set) event.target.value = event.target.value.replace(set, '');
 
-    return event;
-  };
-}
+//     return event;
+//   };
+// }
 
 export default function Input({
   autocomplete,
@@ -35,7 +35,7 @@ export default function Input({
 }: InputProps): ReactElement {
   // const [isPasswordShowing, setPasswordShowing] = useState(false);
 
-  const handleChange = compose(onChange, replaceCharacters(type));
+  // const handleChange = compose(onChange, replaceCharacters(type));
 
   return (
     <InputGroup>
@@ -46,7 +46,7 @@ export default function Input({
         id={name}
         lineHeight="1.875rem"
         name={name}
-        onChange={handleChange}
+        onChange={onChange}
         outline="none"
         px="2"
         // type={isPasswordShowing ? 'text' : types[type] ?? type}
