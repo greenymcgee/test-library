@@ -1,3 +1,3 @@
 import { PropsWithChildren, ReactElement } from 'react';
 import { FormFieldWrapperProps } from './FormFieldWrapper.types';
-export default function FormFieldWrapper({ children, error, isRequired, label, name, tooltipMessage, secondaryLabel, helper, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
+export default function FormFieldWrapper({ children, error, helperMessage, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;

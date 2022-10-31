@@ -1,26 +1,26 @@
 import { PropsWithChildren, ReactElement, ReactNode } from 'react';
-import { InputProps as InputProps$1, BoxProps, TextProps } from '@chakra-ui/react';
+import { FormControlProps, InputProps as InputProps$1, BoxProps, TextProps } from '@chakra-ui/react';
 
-interface FormFieldWrapperProps {
+interface FormFieldWrapperProps extends FormControlProps {
     error?: null | false | string;
+    helperMessage?: string;
     isRequired?: boolean;
     label: string;
     name: string;
-    tooltipMessage?: string;
     secondaryLabel?: string;
-    helper?: string;
+    tooltipMessage?: string;
 }
 
-declare function FormFieldWrapper({ children, error, isRequired, label, name, tooltipMessage, secondaryLabel, helper, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
+declare function FormFieldWrapper({ children, error, helperMessage, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
 
 declare type InputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-declare type InputPropsExtensions = FormFieldWrapperProps & Omit<InputProps$1, 'type'>;
-interface InputProps extends InputPropsExtensions {
+interface InputProps extends Omit<InputProps$1, 'type' | 'name'> {
     autocomplete?: string;
     type?: InputType;
+    wrapperProps: FormFieldWrapperProps;
 }
 
-declare function Input(props: InputProps): ReactElement;
+declare function Input({ autocomplete, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
 
 interface TooltipProps extends BoxProps {
     message: string | ReactNode;
@@ -34,4 +34,11 @@ interface SecondaryLabelProps extends TextProps {
 
 declare function SecondaryLabel({ label, ...options }: SecondaryLabelProps): ReactElement;
 
-export { FormFieldWrapper, Input, SecondaryLabel, Tooltip };
+interface FormFieldHelperMessageProps {
+    error: undefined | null | false | string;
+    helperMessage: string | undefined;
+}
+
+declare function FormFieldHelperMessage({ error, helperMessage, }: FormFieldHelperMessageProps): ReactElement;
+
+export { FormFieldHelperMessage, FormFieldWrapper, Input, SecondaryLabel, Tooltip };

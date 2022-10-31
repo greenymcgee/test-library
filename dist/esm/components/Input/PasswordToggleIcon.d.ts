@@ -1,3 +1,3 @@
-import React from 'react';
+import { ReactElement } from 'react';
 import { PasswordToggleIconProps } from './Input.types';
-export declare const PasswordToggleIcon: React.FC<PasswordToggleIconProps>;
+export declare function PasswordToggleIcon({ error, isPasswordShowing, setPasswordShowing, type, }: PasswordToggleIconProps): ReactElement;

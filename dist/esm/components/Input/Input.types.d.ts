@@ -1,14 +1,15 @@
-import { BoxProps, InputProps as ChakraInputProps } from '@chakra-ui/react';
+import { InputProps as ChakraInputProps } from '@chakra-ui/react';
+import { Dispatch, SetStateAction } from 'react';
 import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types';
 export declare type InputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-declare type InputPropsExtensions = FormFieldWrapperProps & Omit<ChakraInputProps, 'type'>;
-export interface InputProps extends InputPropsExtensions {
+export interface InputProps extends Omit<ChakraInputProps, 'type' | 'name'> {
     autocomplete?: string;
     type?: InputType;
+    wrapperProps: FormFieldWrapperProps;
 }
-export interface PasswordToggleIconProps extends BoxProps {
-    fill: string;
-    width?: string | number;
-    height?: string | number;
+export interface PasswordToggleIconProps {
+    error: FormFieldWrapperProps['error'];
+    isPasswordShowing: boolean;
+    setPasswordShowing: Dispatch<SetStateAction<boolean>>;
+    type: InputType;
 }
-export {};

@@ -1,3 +1,3 @@
 import { ReactElement } from 'react';
 import { InputProps } from './Input.types';
-export default function Input(props: InputProps): ReactElement;
+export default function Input({ autocomplete, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
