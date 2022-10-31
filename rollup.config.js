@@ -28,7 +28,10 @@ export default [
       external(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        exclude: ['**/dist', '**/node_modules', '**/__tests__', '**/*.test.ts'],
+      }),
       postcss(),
       terser(),
     ],
