@@ -2,37 +2,44 @@ import {
   Input as ChakraInput,
   InputGroup,
   InputRightElement,
-} from '@chakra-ui/react';
-import React, { ChangeEvent, ReactElement, useState } from 'react';
-import { compose, noop } from '@above-lending/prelude';
-import { InputProps, InputType } from './Input.types';
-import FormFieldWrapper from '../FormFieldWrapper';
-import { PasswordToggleIcon } from './PasswordToggleIcon';
+} from '@chakra-ui/react'
+import React, { ChangeEvent, ReactElement, useState } from 'react'
+import { compose, noop } from '@above-lending/prelude'
+import { InputProps, InputType } from './Input.types'
+import FormFieldWrapper from '../FormFieldWrapper'
+import { PasswordToggleIcon } from './PasswordToggleIcon'
+
+type ALInputEvent = ChangeEvent<HTMLInputElement>
 
 const types: Partial<Record<InputType, InputType>> = {
   currency: 'text',
   number: 'text',
   phone: 'text',
-};
+}
 
 const ignoredCharacterSets: Partial<Record<InputType, RegExp>> = {
   currency: /[^0-9.$,]+/g,
   number: /[^0-9.]+/g,
   phone: /[^0-9.\-()+ ]+/g,
-};
+}
 
 function replaceCharacters(type: InputType) {
-  return (event: ChangeEvent<HTMLInputElement>): ChangeEvent => {
-    const set = ignoredCharacterSets[type];
+  return (event: ALInputEvent): ALInputEvent => {
+    const set = ignoredCharacterSets[type]
 
-    if (set) event.target.value = event.target.value.replace(set, '');
+    if (set) {
+      return {
+        ...event,
+        target: { ...event.target, value: event.target.value.replace(set, '') },
+      }
+    }
 
-    return event;
-  };
+    return event
+  }
 }
 
 export default function Input(props: InputProps): ReactElement {
-  const [isPasswordShowing, setPasswordShowing] = useState(false);
+  const [isPasswordShowing, setPasswordShowing] = useState(false)
 
   const {
     autocomplete,
@@ -41,9 +48,9 @@ export default function Input(props: InputProps): ReactElement {
     type = 'text',
     onChange = noop,
     ...options
-  } = props;
+  } = props
 
-  const handleChange = compose(onChange, replaceCharacters(type));
+  const handleChange = compose(onChange, replaceCharacters(type))
 
   return (
     <FormFieldWrapper {...props}>
@@ -68,7 +75,7 @@ export default function Input(props: InputProps): ReactElement {
           <InputRightElement height="100%" mr="2">
             <PasswordToggleIcon
               fill={error ? 'red.500' : 'gray.500'}
-              onClick={(): void => setPasswordShowing((prev) => !prev)}
+              onClick={(): void => setPasswordShowing(prev => !prev)}
               pr="1px"
               pt="1px"
               title={`${isPasswordShowing ? 'Hide' : 'Show'} Password`}
@@ -77,5 +84,5 @@ export default function Input(props: InputProps): ReactElement {
         )}
       </InputGroup>
     </FormFieldWrapper>
-  );
+  )
 }

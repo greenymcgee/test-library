@@ -1,5 +1,5 @@
-import { BoxProps, InputProps as ChakraInputProps } from '@chakra-ui/react';
-import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types';
+import { BoxProps, InputProps as ChakraInputProps } from '@chakra-ui/react'
+import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types'
 // import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types';
 
 export type InputType =
@@ -8,18 +8,18 @@ export type InputType =
   | 'number'
   | 'password'
   | 'phone'
-  | 'text';
+  | 'text'
 
 type InputPropsExtensions = FormFieldWrapperProps &
-  Omit<ChakraInputProps, 'type'>;
+  Omit<ChakraInputProps, 'type'>
 
 export interface InputProps extends InputPropsExtensions {
-  autocomplete?: string;
-  type?: InputType;
+  autocomplete?: string
+  type?: InputType
 }
 
 export interface PasswordToggleIconProps extends BoxProps {
-  fill: string;
-  width?: string | number;
-  height?: string | number;
+  fill: string
+  width?: string | number
+  height?: string | number
 }

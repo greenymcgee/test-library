@@ -1,11 +1,5 @@
-import { ReactElement, PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 import { InputProps as InputProps$1, BoxProps } from '@chakra-ui/react';
-
-interface ButtonProps {
-    label: string;
-}
-
-declare function Button({ label }: ButtonProps): ReactElement;
 
 interface FormFieldWrapperProps {
     error?: null | false | string;
@@ -34,4 +28,4 @@ interface TooltipProps extends BoxProps {
 
 declare function Tooltip({ message, ...options }: TooltipProps): ReactElement;
 
-export { Button, FormFieldWrapper, Input, Tooltip };
+export { FormFieldWrapper, Input, Tooltip };

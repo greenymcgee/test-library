@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement, useState } from 'react';
+import React, { PropsWithChildren, ReactElement } from 'react'
 import {
   Box,
   Flex,
@@ -6,9 +6,9 @@ import {
   FormErrorMessage,
   FormLabel,
   Text,
-} from '@chakra-ui/react';
-import Tooltip from '../Tooltip';
-import { FormFieldWrapperProps } from './FormFieldWrapper.types';
+} from '@chakra-ui/react'
+import Tooltip from '../Tooltip'
+import { FormFieldWrapperProps } from './FormFieldWrapper.types'
 
 export default function FormFieldWrapper({
   children,
@@ -21,7 +21,7 @@ export default function FormFieldWrapper({
   helper,
   ...rest
 }: PropsWithChildren<FormFieldWrapperProps>): ReactElement {
-  const isError = Boolean(error);
+  const isError = Boolean(error)
 
   return (
     <FormControl {...rest} isInvalid={isError} isRequired={isRequired}>
@@ -56,5 +56,5 @@ export default function FormFieldWrapper({
         </Box>
       )}
     </FormControl>
-  );
+  )
 }

@@ -1,5 +1,6 @@
 {
-  "exclude": ["dist"],
+  "extends": "@above-lending/tsconfig",
+  "exclude": ["**/dist", "**/node_modules"],
   "include": ["src/**/*"],
   "compilerOptions": {
     "target": "es5",

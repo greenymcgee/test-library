@@ -1,0 +1,7 @@
+{
+  "root": true,
+  "extends": ["@above-lending"],
+  "rules": {
+    "react/jsx-props-no-spreading": "off"
+  }
+}

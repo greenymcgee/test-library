@@ -1,6 +1,6 @@
-import React, { ReactElement, ReactNode } from 'react';
-import { Box, Image, Tooltip as ChakraTooltip } from '@chakra-ui/react';
-import { TooltipProps } from './Tooltip.types';
+import React, { ReactElement } from 'react'
+import { Box, Image, Tooltip as ChakraTooltip } from '@chakra-ui/react'
+import { TooltipProps } from './Tooltip.types'
 
 export default function Tooltip({
   message,
@@ -27,5 +27,5 @@ export default function Tooltip({
         />
       </ChakraTooltip>
     </Box>
-  );
+  )
 }
