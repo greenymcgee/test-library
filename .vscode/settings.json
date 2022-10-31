@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+  "editor.rulers": [80],
+  "eslint.workingDirectories": ["."],
+  "files.exclude": {
+    ".eslintrc": true,
+    ".git": true,
+    ".npmrc": true,
+    ".nvmrc": true,
+    ".prettierrc": true,
+    "node_modules": true,
+    ".gitignore": true,
+    "jest.config.ts": true,
+    "jest.setup.ts": true,
+    "tsconfig.json": true
+  },
+  "cSpell.words": ["testid", "chakra"]
+}

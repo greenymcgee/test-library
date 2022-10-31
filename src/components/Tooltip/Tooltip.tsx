@@ -6,6 +6,8 @@ export default function Tooltip({
   message,
   ...options
 }: TooltipProps): ReactElement {
+  if (!message) return <></>
+
   return (
     <Box>
       <ChakraTooltip

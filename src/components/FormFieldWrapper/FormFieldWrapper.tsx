@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 import Tooltip from '../Tooltip'
 import { FormFieldWrapperProps } from './FormFieldWrapper.types'
+import SecondaryLabel from '../SecondaryLabel'
 
 export default function FormFieldWrapper({
   children,
@@ -19,12 +20,12 @@ export default function FormFieldWrapper({
   tooltipMessage,
   secondaryLabel,
   helper,
-  ...rest
+  ...options
 }: PropsWithChildren<FormFieldWrapperProps>): ReactElement {
-  const isError = Boolean(error)
+  const isInvalid = Boolean(error)
 
   return (
-    <FormControl {...rest} isInvalid={isError} isRequired={isRequired}>
+    <FormControl isInvalid={isInvalid} isRequired={isRequired} {...options}>
       <Flex>
         <FormLabel
           color="inherit"
@@ -37,16 +38,11 @@ export default function FormFieldWrapper({
         >
           {label}
         </FormLabel>
-        {secondaryLabel && (
-          <Text fontSize="xs" color="gray.500" fontWeight="semibold">
-            {' '}
-            - {secondaryLabel}
-          </Text>
-        )}
-        {tooltipMessage && <Tooltip message={tooltipMessage} marginLeft="3" />}
+        <SecondaryLabel label={secondaryLabel} />
+        <Tooltip message={tooltipMessage} marginLeft="3" />
       </Flex>
       {children}
-      {isError ? (
+      {isInvalid ? (
         <FormErrorMessage color="red.500" fontSize={{ base: 'xs', lg: 'xxs' }}>
           {error}
         </FormErrorMessage>

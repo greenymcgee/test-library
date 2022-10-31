@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactElement, ReactNode } from 'react';
-import { InputProps as InputProps$1, BoxProps } from '@chakra-ui/react';
+import { InputProps as InputProps$1, BoxProps, TextProps } from '@chakra-ui/react';
 
 interface FormFieldWrapperProps {
     error?: null | false | string;
@@ -11,7 +11,7 @@ interface FormFieldWrapperProps {
     helper?: string;
 }
 
-declare function FormFieldWrapper({ children, error, isRequired, label, name, tooltipMessage, secondaryLabel, helper, ...rest }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
+declare function FormFieldWrapper({ children, error, isRequired, label, name, tooltipMessage, secondaryLabel, helper, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
 
 declare type InputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
 declare type InputPropsExtensions = FormFieldWrapperProps & Omit<InputProps$1, 'type'>;
@@ -28,4 +28,10 @@ interface TooltipProps extends BoxProps {
 
 declare function Tooltip({ message, ...options }: TooltipProps): ReactElement;
 
-export { FormFieldWrapper, Input, Tooltip };
+interface SecondaryLabelProps extends TextProps {
+    label: string | undefined;
+}
+
+declare function SecondaryLabel({ label, ...options }: SecondaryLabelProps): ReactElement;
+
+export { FormFieldWrapper, Input, SecondaryLabel, Tooltip };
