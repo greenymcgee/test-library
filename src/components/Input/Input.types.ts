@@ -1,4 +1,5 @@
 import { BoxProps, InputProps as ChakraInputProps } from '@chakra-ui/react';
+import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types';
 // import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types';
 
 export type InputType =
@@ -9,10 +10,10 @@ export type InputType =
   | 'phone'
   | 'text';
 
-// type InputPropsExtensions = FormFieldWrapperProps &
-//   Omit<ChakraInputProps, 'type'>;
+type InputPropsExtensions = FormFieldWrapperProps &
+  Omit<ChakraInputProps, 'type'>;
 
-export interface InputProps extends Omit<ChakraInputProps, 'type'> {
+export interface InputProps extends InputPropsExtensions {
   autocomplete?: string;
   type?: InputType;
 }

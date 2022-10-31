@@ -20,12 +20,13 @@ interface FormFieldWrapperProps {
 declare function FormFieldWrapper({ children, error, isRequired, label, name, tooltipMessage, secondaryLabel, helper, ...rest }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
 
 declare type InputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-interface InputProps extends Omit<InputProps$1, 'type'> {
+declare type InputPropsExtensions = FormFieldWrapperProps & Omit<InputProps$1, 'type'>;
+interface InputProps extends InputPropsExtensions {
     autocomplete?: string;
     type?: InputType;
 }
 
-declare function Input({ autocomplete, name, type, onChange, ...options }: InputProps): ReactElement;
+declare function Input(props: InputProps): ReactElement;
 
 interface TooltipProps extends BoxProps {
     message: string | ReactNode;
