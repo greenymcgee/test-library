@@ -50,7 +50,9 @@ export default function Input(props: InputProps): ReactElement {
       <InputGroup>
         <ChakraInput
           autoComplete={autocomplete ?? 'on'}
+          backgroundColor={error ? 'red.200' : 'gray.200'}
           border="1px solid"
+          borderColor={error ? 'red.500' : 'gray.400'}
           fontSize="md"
           id={name}
           lineHeight="1.875rem"
