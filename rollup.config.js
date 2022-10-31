@@ -36,7 +36,7 @@ export default [
   {
     input: 'dist/esm/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    external: [/\.css$/],
+    external: [Object.keys(packageJson.peerDependencies)],
     plugins: [dts.default()],
   },
 ];
