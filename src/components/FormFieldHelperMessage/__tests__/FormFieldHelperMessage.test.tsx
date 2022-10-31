@@ -1,7 +1,7 @@
 import { FormControl, PropsOf } from '@chakra-ui/react'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import FormFieldHelperMessage from '../FormFieldHelperMessage'
+import FormFieldHelperMessage from '..'
 
 const props: PropsOf<typeof FormFieldHelperMessage> = {
   error: 'an error',

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import SecondaryLabel from '../SecondaryLabel'
+import SecondaryLabel from '..'
 
 describe('SecondaryLabel', () => {
   it('should render a label if given', () => {

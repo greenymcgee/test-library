@@ -1,6 +1,7 @@
 import { Box, InputRightElement } from '@chakra-ui/react'
 import React, { ReactElement } from 'react'
 import { PasswordToggleIconProps } from './Input.types'
+import { inputStyles, togglePasswordShowing } from './utils'
 
 export function PasswordToggleIcon({
   error,
@@ -16,14 +17,14 @@ export function PasswordToggleIcon({
         aria-label={`${isPasswordShowing ? 'Hide' : 'Show'} Password`}
         as="button"
         type="button"
-        onClick={(): void => setPasswordShowing(prev => !prev)}
+        onClick={(): void => setPasswordShowing(togglePasswordShowing)}
         pr="1px"
         pt="1px"
       >
         <Box
           as="svg"
           data-testid="password-toggle-svg"
-          fill={error ? 'red.500' : 'gray.500'}
+          fill={inputStyles(error).toggleIconFill}
           viewBox="0 0 24 24"
           width="5"
         >

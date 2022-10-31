@@ -12,6 +12,8 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.+(story|stories).{js,jsx,ts,tsx}',
+    '!src/index.ts',
+    '!src/components/index.ts',
   ],
   coverageReporters: ['lcov', 'text', 'text-summary', 'html'],
   coverageThreshold: {

@@ -1,5 +1,11 @@
 import { ChangeEvent } from 'react'
-import { removeIgnoredInputCharacters } from '../utils'
+import {
+  inputAutoComplete,
+  inputStyles,
+  inputType,
+  removeIgnoredInputCharacters,
+  togglePasswordShowing,
+} from '../utils'
 
 describe('Input utils', () => {
   describe('removeIgnoredInputCharacters', () => {
@@ -33,6 +39,66 @@ describe('Input utils', () => {
       } as ChangeEvent<HTMLInputElement>
       const result = removeIgnoredInputCharacters('number')(event)
       expect(result.target.value).toBe('5555555123')
+    })
+  })
+
+  describe('inputStyles', () => {
+    it('should return error styles if the error is given', () => {
+      const result = inputStyles('yo')
+      expect(result).toEqual({
+        inputBackgroundColor: 'red.200',
+        inputBorderColor: 'red.500',
+        toggleIconFill: 'red.500',
+      })
+    })
+
+    it('should return default styles without the error', () => {
+      const result = inputStyles(undefined)
+      expect(result).toEqual({
+        inputBackgroundColor: 'gray.200',
+        inputBorderColor: 'gray.400',
+        toggleIconFill: 'gray.500',
+      })
+    })
+  })
+
+  describe('inputType', () => {
+    it('should return "text" if the password is showing', () => {
+      const result = inputType(true, 'password')
+      expect(result).toEqual('text')
+    })
+
+    it('should return an inputCharacterType if the given type matches', () => {
+      let result = inputType(false, 'currency')
+      expect(result).toEqual('text')
+      result = inputType(false, 'number')
+      expect(result).toEqual('text')
+      result = inputType(false, 'phone')
+      expect(result).toEqual('text')
+    })
+
+    it('should return the given type if no inputCharacterType matches', () => {
+      const result = inputType(false, 'password')
+      expect(result).toEqual('password')
+    })
+  })
+
+  describe('inputAutoComplete', () => {
+    it('should return the given autoComplete', () => {
+      const result = inputAutoComplete('off')
+      expect(result).toBe('off')
+    })
+
+    it('should return a default of "on"', () => {
+      const result = inputAutoComplete(undefined)
+      expect(result).toBe('on')
+    })
+  })
+
+  describe('togglePasswordShowing', () => {
+    it('should flip the boolean', () => {
+      const result = togglePasswordShowing(true)
+      expect(result).toEqual(false)
     })
   })
 })

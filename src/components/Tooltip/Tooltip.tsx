@@ -22,9 +22,9 @@ export default function Tooltip({
         {...options}
       >
         <Image
+          alt="tooltip"
           marginLeft="2"
           src="/lander/images/information-icon.svg"
-          alt="tooltip"
           width="16px"
         />
       </ChakraTooltip>
