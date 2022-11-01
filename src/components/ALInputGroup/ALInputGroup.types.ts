@@ -9,10 +9,7 @@ export type ALInputType =
   | 'phone'
   | 'text'
 
-type InputPropsExtensions = Omit<ChakraInputProps, 'type' | 'name'> &
-  Pick<FormFieldWrapperProps, 'name' | 'label' | 'error'>
-
-export interface ALInputProps extends InputPropsExtensions {
+export interface ALInputGroupProps extends FormFieldWrapperProps {
   type?: ALInputType
-  wrapperProps?: Omit<FormFieldWrapperProps, 'name' | 'label' | 'error'>
+  inputProps?: Omit<ChakraInputProps, 'type' | 'name'>
 }

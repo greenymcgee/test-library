@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactElement, ReactNode } from 'react';
-import { FormControlProps, InputProps, BoxProps, TextProps } from '@chakra-ui/react';
+import { InputProps, BoxProps, TextProps } from '@chakra-ui/react';
 
-interface FormFieldWrapperProps extends FormControlProps {
+interface FormFieldWrapperProps {
     error?: null | false | string;
     helperMessage?: string;
     isRequired?: boolean;
@@ -14,13 +14,12 @@ interface FormFieldWrapperProps extends FormControlProps {
 declare function FormFieldWrapper({ children, error, helperMessage, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
 
 declare type ALInputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-declare type InputPropsExtensions = Omit<InputProps, 'type' | 'name'> & Pick<FormFieldWrapperProps, 'name' | 'label' | 'error'>;
-interface ALInputProps extends InputPropsExtensions {
+interface ALInputGroupProps extends FormFieldWrapperProps {
     type?: ALInputType;
-    wrapperProps?: Omit<FormFieldWrapperProps, 'name' | 'label' | 'error'>;
+    inputProps?: Omit<InputProps, 'type' | 'name'>;
 }
 
-declare function ALInput({ autoComplete, error, label, name, type, onChange, wrapperProps, ...options }: ALInputProps): ReactElement;
+declare function ALInputGroup({ error, label, name, type, inputProps, ...options }: ALInputGroupProps): ReactElement;
 
 interface TooltipProps extends BoxProps {
     message: string | ReactNode;
@@ -41,4 +40,4 @@ interface FormFieldHelperMessageProps {
 
 declare function FormFieldHelperMessage({ error, helperMessage, }: FormFieldHelperMessageProps): ReactElement;
 
-export { ALInput, FormFieldHelperMessage, FormFieldWrapper, SecondaryLabel, Tooltip };
+export { ALInputGroup, FormFieldHelperMessage, FormFieldWrapper, SecondaryLabel, Tooltip };

@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react'
 import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types'
-import { ALInputType } from './ALInput.types'
+import { ALInputType } from './ALInputGroup.types'
 
 type CharacterEvent = ChangeEvent<HTMLInputElement>
 

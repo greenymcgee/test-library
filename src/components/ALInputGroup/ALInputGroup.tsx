@@ -1,7 +1,7 @@
 import { Input as ChakraInput, InputGroup } from '@chakra-ui/react'
 import React, { ReactElement, useState } from 'react'
 import { compose, noop } from '@above-lending/prelude'
-import { ALInputProps } from './ALInput.types'
+import { ALInputGroupProps } from './ALInputGroup.types'
 import FormFieldWrapper from '../FormFieldWrapper'
 import { PasswordToggleIcon } from './PasswordToggleIcon'
 import {
@@ -12,26 +12,26 @@ import {
   togglePasswordShowing,
 } from './utils'
 
-export default function ALInput({
-  autoComplete,
+export default function ALInputGroup({
   error,
   label,
   name,
   type = 'text',
-  onChange = noop,
-  wrapperProps = {},
+  inputProps = {},
   ...options
-}: ALInputProps): ReactElement {
+}: ALInputGroupProps): ReactElement {
   const [isPasswordShowing, setPasswordShowing] = useState(false)
-  const handleChange = compose(onChange, removeIgnoredInputCharacters(type))
+  const handleChange = inputProps.onChange
+    ? compose(inputProps.onChange, removeIgnoredInputCharacters(type))
+    : noop
   const { inputBackgroundColor, inputBorderColor, toggleIconFill } =
     inputStyles(error)
 
   return (
-    <FormFieldWrapper label={label} name={name} {...wrapperProps}>
+    <FormFieldWrapper error={error} label={label} name={name} {...options}>
       <InputGroup>
         <ChakraInput
-          autoComplete={inputAutoComplete(autoComplete)}
+          autoComplete={inputAutoComplete(inputProps.autoComplete)}
           backgroundColor={inputBackgroundColor}
           border="1px solid"
           borderColor={inputBorderColor}
@@ -45,7 +45,7 @@ export default function ALInput({
           px="2"
           type={inputType(isPasswordShowing, type)}
           width="full"
-          {...options}
+          {...inputProps}
         />
         <PasswordToggleIcon
           ariaLabel={`${isPasswordShowing ? 'Hide' : 'Show'} Password`}

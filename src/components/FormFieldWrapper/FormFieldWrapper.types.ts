@@ -1,6 +1,4 @@
-import { FormControlProps } from '@chakra-ui/react'
-
-export interface FormFieldWrapperProps extends FormControlProps {
+export interface FormFieldWrapperProps {
   error?: null | false | string
   helperMessage?: string
   isRequired?: boolean
