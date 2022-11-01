@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactElement, ReactNode } from 'react';
-import { FormControlProps, InputProps as InputProps$1, BoxProps, TextProps } from '@chakra-ui/react';
+import { FormControlProps, InputProps, BoxProps, TextProps } from '@chakra-ui/react';
 
 interface FormFieldWrapperProps extends FormControlProps {
     error?: null | false | string;
@@ -13,15 +13,14 @@ interface FormFieldWrapperProps extends FormControlProps {
 
 declare function FormFieldWrapper({ children, error, helperMessage, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
 
-declare type InputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-declare type InputPropsExtensions = Omit<InputProps$1, 'type' | 'name'> & Pick<FormFieldWrapperProps, 'name' | 'label'>;
-interface InputProps extends InputPropsExtensions {
-    autocomplete?: string;
-    type?: InputType;
-    wrapperProps?: Omit<FormFieldWrapperProps, 'name' | 'label'>;
+declare type ALInputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
+declare type InputPropsExtensions = Omit<InputProps, 'type' | 'name'> & Pick<FormFieldWrapperProps, 'name' | 'label' | 'error'>;
+interface ALInputProps extends InputPropsExtensions {
+    type?: ALInputType;
+    wrapperProps?: Omit<FormFieldWrapperProps, 'name' | 'label' | 'error'>;
 }
 
-declare function ALInput({ autocomplete, label, name, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
+declare function ALInput({ autoComplete, error, label, name, type, onChange, wrapperProps, ...options }: ALInputProps): ReactElement;
 
 interface TooltipProps extends BoxProps {
     message: string | ReactNode;

@@ -3,11 +3,11 @@ import React from 'react'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Simulate } from 'react-dom/test-utils'
 import ALInput from '..'
-import { InputProps } from '../Input.types'
+import { ALInputProps } from '../ALInput.types'
 
 const onChange = jest.fn()
 
-const props: InputProps = { label: 'First Name', name: 'first-name' }
+const props: ALInputProps = { label: 'First Name', name: 'first-name' }
 const testId = `${props.name}-input`
 
 describe('ALInput', () => {

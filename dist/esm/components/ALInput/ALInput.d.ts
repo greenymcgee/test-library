@@ -1,3 +1,3 @@
 import { ReactElement } from 'react';
-import { InputProps } from './Input.types';
-export default function ALInput({ autocomplete, label, name, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
+import { ALInputProps } from './ALInput.types';
+export default function ALInput({ autoComplete, error, label, name, type, onChange, wrapperProps, ...options }: ALInputProps): ReactElement;

@@ -1,6 +1,13 @@
-import { Box, InputRightElement } from '@chakra-ui/react'
+import { Box, BoxProps, InputRightElement } from '@chakra-ui/react'
 import React, { ReactElement } from 'react'
-import { PasswordToggleIconProps } from './Input.types'
+import { ALInputType } from './ALInput.types'
+
+interface PasswordToggleIconProps {
+  ariaLabel: BoxProps['aria-label']
+  fill: BoxProps['fill']
+  onClick: VoidFunction
+  type: ALInputType
+}
 
 export function PasswordToggleIcon({
   ariaLabel,

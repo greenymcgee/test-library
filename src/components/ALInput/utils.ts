@@ -1,22 +1,22 @@
 import { ChangeEvent } from 'react'
 import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types'
-import { InputType } from './Input.types'
+import { ALInputType } from './ALInput.types'
 
 type CharacterEvent = ChangeEvent<HTMLInputElement>
 
-export const inputCharacterTypes: Partial<Record<InputType, InputType>> = {
+export const inputCharacterTypes: Partial<Record<ALInputType, ALInputType>> = {
   currency: 'text',
   number: 'text',
   phone: 'text',
 }
 
-const ignoredCharacterSets: Partial<Record<InputType, RegExp>> = {
+const ignoredCharacterSets: Partial<Record<ALInputType, RegExp>> = {
   currency: /[^0-9.$,]+/g,
   number: /[^0-9.]+/g,
   phone: /[^0-9.\-()+ ]+/g,
 }
 
-export function removeIgnoredInputCharacters(type: InputType) {
+export function removeIgnoredInputCharacters(type: ALInputType) {
   return (event: CharacterEvent): CharacterEvent => {
     const set = ignoredCharacterSets[type]
 
@@ -53,8 +53,8 @@ export function inputStyles(error: FormFieldWrapperProps['error']): {
 
 export function inputType(
   isPasswordShowing: boolean,
-  type: InputType,
-): InputType {
+  type: ALInputType,
+): ALInputType {
   if (isPasswordShowing) return 'text'
 
   return inputCharacterTypes[type] ?? type
