@@ -14,13 +14,9 @@ export default function FormFieldHelperMessage({
     )
   }
 
-  if (helperMessage) {
-    return (
-      <Box data-testid="form-field-error-placeholder" minHeight="4">
-        <Text fontSize="xs">{helperMessage}</Text>
-      </Box>
-    )
-  }
-
-  return <></>
+  return (
+    <Box data-testid="form-field-error-placeholder" minHeight="4">
+      <Text fontSize="xs">{helperMessage}</Text>
+    </Box>
+  )
 }

@@ -35,11 +35,4 @@ describe('FormFieldHelperMessage', () => {
     )
     expect(screen.getByText(props.helperMessage as string)).toBeVisible()
   })
-
-  it('should render an empty container by default', () => {
-    const { container } = render(
-      <FormFieldHelperMessage error={null} helperMessage={undefined} />,
-    )
-    expect(container.firstChild).toBeNull()
-  })
 })
