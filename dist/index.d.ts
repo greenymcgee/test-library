@@ -14,13 +14,14 @@ interface FormFieldWrapperProps extends FormControlProps {
 declare function FormFieldWrapper({ children, error, helperMessage, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
 
 declare type InputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-interface InputProps extends Omit<InputProps$1, 'type' | 'name'> {
+declare type InputPropsExtensions = Omit<InputProps$1, 'type' | 'name'> & Pick<FormFieldWrapperProps, 'name' | 'label'>;
+interface InputProps extends InputPropsExtensions {
     autocomplete?: string;
     type?: InputType;
-    wrapperProps: FormFieldWrapperProps;
+    wrapperProps?: Omit<FormFieldWrapperProps, 'name' | 'label'>;
 }
 
-declare function Input({ autocomplete, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
+declare function Input({ autocomplete, label, name, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
 
 interface TooltipProps extends BoxProps {
     message: string | ReactNode;
