@@ -15,7 +15,8 @@
     "test:unit": "jest --coverage --runInBand",
     "test": "npm run test:unit",
     "test:watch": "jest --watch",
-    "test:clear": "jest --clearCache"
+    "test:clear": "jest --clearCache",
+    "validate": "npm run lint && npm run test"
   },
   "author": "",
   "license": "ISC",

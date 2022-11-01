@@ -9,34 +9,36 @@ import {
   inputStyles,
   inputType,
   removeIgnoredInputCharacters,
+  togglePasswordShowing,
 } from './utils'
 
 export default function Input({
   autocomplete,
+  label,
+  name,
   type = 'text',
   onChange = noop,
-  wrapperProps,
+  wrapperProps = {},
   ...options
 }: InputProps): ReactElement {
   const [isPasswordShowing, setPasswordShowing] = useState(false)
   const handleChange = compose(onChange, removeIgnoredInputCharacters(type))
-  const { inputBackgroundColor, inputBorderColor } = inputStyles(
-    wrapperProps.error,
-  )
+  const { inputBackgroundColor, inputBorderColor, toggleIconFill } =
+    inputStyles(wrapperProps.error)
 
   return (
-    <FormFieldWrapper {...wrapperProps}>
+    <FormFieldWrapper label={label} name={name} {...wrapperProps}>
       <InputGroup>
         <ChakraInput
           autoComplete={inputAutoComplete(autocomplete)}
           backgroundColor={inputBackgroundColor}
           border="1px solid"
           borderColor={inputBorderColor}
-          data-testid={`${wrapperProps.name}-input`}
+          data-testid={`${name}-input`}
           fontSize="md"
-          id={wrapperProps.name}
+          id={name}
           lineHeight="7"
-          name={wrapperProps.name}
+          name={name}
           onChange={handleChange}
           outline="none"
           px="2"
@@ -45,9 +47,9 @@ export default function Input({
           {...options}
         />
         <PasswordToggleIcon
-          error={wrapperProps.error}
-          isPasswordShowing={isPasswordShowing}
-          setPasswordShowing={setPasswordShowing}
+          ariaLabel={`${isPasswordShowing ? 'Hide' : 'Show'} Password`}
+          fill={toggleIconFill}
+          onClick={(): void => setPasswordShowing(togglePasswordShowing)}
           type={type}
         />
       </InputGroup>
