@@ -12,7 +12,7 @@ import {
   togglePasswordShowing,
 } from './utils'
 
-export default function Input({
+export default function ALInput({
   autocomplete,
   label,
   name,

@@ -21,7 +21,7 @@ interface InputProps extends InputPropsExtensions {
     wrapperProps?: Omit<FormFieldWrapperProps, 'name' | 'label'>;
 }
 
-declare function Input({ autocomplete, label, name, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
+declare function ALInput({ autocomplete, label, name, type, onChange, wrapperProps, ...options }: InputProps): ReactElement;
 
 interface TooltipProps extends BoxProps {
     message: string | ReactNode;
@@ -42,4 +42,4 @@ interface FormFieldHelperMessageProps {
 
 declare function FormFieldHelperMessage({ error, helperMessage, }: FormFieldHelperMessageProps): ReactElement;
 
-export { FormFieldHelperMessage, FormFieldWrapper, Input, SecondaryLabel, Tooltip };
+export { ALInput, FormFieldHelperMessage, FormFieldWrapper, SecondaryLabel, Tooltip };
