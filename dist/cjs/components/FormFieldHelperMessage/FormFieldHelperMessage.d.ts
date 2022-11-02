@@ -1,3 +1,3 @@
 import { ReactElement } from 'react';
 import { FormFieldHelperMessageProps } from './FormFieldHelperMessage.types';
-export default function FormFieldHelperMessage({ error, helperMessage, }: FormFieldHelperMessageProps): ReactElement;
+export default function FormFieldHelperMessage({ error, helperText, }: FormFieldHelperMessageProps): ReactElement;

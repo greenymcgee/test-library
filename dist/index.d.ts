@@ -3,7 +3,7 @@ import { InputProps, BoxProps, TextProps } from '@chakra-ui/react';
 
 interface FormFieldWrapperProps {
     error?: null | false | string;
-    helperMessage?: string;
+    helperText?: string;
     isRequired?: boolean;
     label: string;
     name: string;
@@ -11,7 +11,7 @@ interface FormFieldWrapperProps {
     tooltipMessage?: string;
 }
 
-declare function FormFieldWrapper({ children, error, helperMessage, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
+declare function FormFieldWrapper({ children, error, helperText, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
 
 declare type ALInputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
 interface ALInputGroupProps extends FormFieldWrapperProps {
@@ -35,9 +35,9 @@ declare function SecondaryLabel({ label, ...options }: SecondaryLabelProps): Rea
 
 interface FormFieldHelperMessageProps {
     error: undefined | null | false | string;
-    helperMessage: string | undefined;
+    helperText: string | undefined;
 }
 
-declare function FormFieldHelperMessage({ error, helperMessage, }: FormFieldHelperMessageProps): ReactElement;
+declare function FormFieldHelperMessage({ error, helperText, }: FormFieldHelperMessageProps): ReactElement;
 
 export { ALInputGroup, FormFieldHelperMessage, FormFieldWrapper, SecondaryLabel, Tooltip };

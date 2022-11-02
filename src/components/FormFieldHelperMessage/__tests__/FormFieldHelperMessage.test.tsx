@@ -5,7 +5,7 @@ import FormFieldHelperMessage from '..'
 
 const props: PropsOf<typeof FormFieldHelperMessage> = {
   error: 'an error',
-  helperMessage: 'help me',
+  helperText: 'help me',
 }
 
 describe('FormFieldHelperMessage', () => {
@@ -14,25 +14,22 @@ describe('FormFieldHelperMessage', () => {
       <FormControl isInvalid>
         <FormFieldHelperMessage
           error={props.error}
-          helperMessage={props.helperMessage}
+          helperText={props.helperText}
         />
       </FormControl>,
     )
     expect(screen.getByText(props.error as string)).toBeVisible()
     expect(
-      screen.queryByText(props.helperMessage as string),
+      screen.queryByText(props.helperText as string),
     ).not.toBeInTheDocument()
   })
 
   it('should render a helper message if one is given, but no error', () => {
     render(
       <FormControl isInvalid={false}>
-        <FormFieldHelperMessage
-          error={null}
-          helperMessage={props.helperMessage}
-        />
+        <FormFieldHelperMessage error={null} helperText={props.helperText} />
       </FormControl>,
     )
-    expect(screen.getByText(props.helperMessage as string)).toBeVisible()
+    expect(screen.getByText(props.helperText as string)).toBeVisible()
   })
 })

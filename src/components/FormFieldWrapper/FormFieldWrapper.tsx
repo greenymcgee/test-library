@@ -8,7 +8,7 @@ import FormFieldHelperMessage from '../FormFieldHelperMessage/FormFieldHelperMes
 export default function FormFieldWrapper({
   children,
   error,
-  helperMessage,
+  helperText,
   label,
   name,
   secondaryLabel,
@@ -25,6 +25,7 @@ export default function FormFieldWrapper({
           fontSize="xs"
           fontWeight="medium"
           htmlFor={name}
+          lineHeight="small"
           overflow="hidden"
           textOverflow="ellipsis"
           whiteSpace="nowrap"
@@ -35,7 +36,7 @@ export default function FormFieldWrapper({
         <Tooltip message={tooltipMessage} marginLeft="3" />
       </Flex>
       {children}
-      <FormFieldHelperMessage error={error} helperMessage={helperMessage} />
+      <FormFieldHelperMessage error={error} helperText={helperText} />
     </FormControl>
   )
 }

@@ -38,11 +38,12 @@ export default function ALInputGroup({
           data-testid={`${name}-input`}
           fontSize="md"
           id={name}
-          lineHeight="7"
+          lineHeight="6"
           name={name}
           onChange={handleChange}
           outline="none"
           px="2"
+          py="1"
           type={inputType(isPasswordShowing, type)}
           width="full"
           {...inputProps}
