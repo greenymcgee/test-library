@@ -1,11 +1,11 @@
 import { Text } from '@chakra-ui/react'
 import React, { ReactElement } from 'react'
-import { SecondaryLabelProps } from './SecondaryLabel.types'
+import { ALFieldsetSecondaryLabelProps } from './ALFieldsetSecondaryLabel.types'
 
-export default function SecondaryLabel({
+export default function ALFieldsetSecondaryLabel({
   label,
   ...options
-}: SecondaryLabelProps): ReactElement {
+}: ALFieldsetSecondaryLabelProps): ReactElement {
   if (!label) return <></>
 
   return (

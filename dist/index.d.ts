@@ -27,11 +27,11 @@ interface TooltipProps extends BoxProps {
 
 declare function Tooltip({ message, ...options }: TooltipProps): ReactElement;
 
-interface SecondaryLabelProps extends TextProps {
+interface ALFieldsetSecondaryLabelProps extends TextProps {
     label: string | undefined;
 }
 
-declare function SecondaryLabel({ label, ...options }: SecondaryLabelProps): ReactElement;
+declare function ALFieldsetSecondaryLabel({ label, ...options }: ALFieldsetSecondaryLabelProps): ReactElement;
 
 interface ALFieldsetBelowControlProps {
     error: ALFieldsetProps['error'];
@@ -40,4 +40,4 @@ interface ALFieldsetBelowControlProps {
 
 declare function ALFieldsetBelowControl({ error, helperText, }: ALFieldsetBelowControlProps): ReactElement;
 
-export { ALFieldset, ALFieldsetBelowControl, ALInputGroup, SecondaryLabel, Tooltip };
+export { ALFieldset, ALFieldsetBelowControl, ALFieldsetSecondaryLabel, ALInputGroup, Tooltip };

@@ -2,7 +2,7 @@ import React, { PropsWithChildren, ReactElement } from 'react'
 import { Flex, FormControl, FormLabel } from '@chakra-ui/react'
 import Tooltip from '../Tooltip'
 import { ALFieldsetProps } from './ALFieldset.types'
-import SecondaryLabel from '../SecondaryLabel'
+import SecondaryLabel from '../ALFieldsetSecondaryLabel'
 import ALFieldsetBelowControl from '../ALFieldsetBelowControl'
 
 export default function ALFieldset({
