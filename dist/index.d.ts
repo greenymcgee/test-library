@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 import { InputProps, BoxProps, TextProps } from '@chakra-ui/react';
 
-interface FormFieldWrapperProps {
+interface ALFieldsetProps {
     error?: null | false | string;
     helperText?: string;
     isRequired?: boolean;
@@ -11,10 +11,10 @@ interface FormFieldWrapperProps {
     tooltipMessage?: string;
 }
 
-declare function FormFieldWrapper({ children, error, helperText, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<FormFieldWrapperProps>): ReactElement;
+declare function ALFieldset({ children, error, helperText, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<ALFieldsetProps>): ReactElement;
 
 declare type ALInputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-interface ALInputGroupProps extends FormFieldWrapperProps {
+interface ALInputGroupProps extends ALFieldsetProps {
     type?: ALInputType;
     inputProps?: Omit<InputProps, 'type' | 'name'>;
 }
@@ -40,4 +40,4 @@ interface FormFieldHelperMessageProps {
 
 declare function FormFieldHelperMessage({ error, helperText, }: FormFieldHelperMessageProps): ReactElement;
 
-export { ALInputGroup, FormFieldHelperMessage, FormFieldWrapper, SecondaryLabel, Tooltip };
+export { ALFieldset, ALInputGroup, FormFieldHelperMessage, SecondaryLabel, Tooltip };

@@ -1,7 +1,7 @@
 import { InputProps as ChakraInputProps } from '@chakra-ui/react';
-import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types';
+import { ALFieldsetProps } from '../ALFieldset/ALFieldset.types';
 export declare type ALInputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
-export interface ALInputGroupProps extends FormFieldWrapperProps {
+export interface ALInputGroupProps extends ALFieldsetProps {
     type?: ALInputType;
     inputProps?: Omit<ChakraInputProps, 'type' | 'name'>;
 }

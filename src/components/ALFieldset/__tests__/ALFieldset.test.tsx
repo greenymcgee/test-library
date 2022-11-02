@@ -1,16 +1,16 @@
-import { PropsOf } from '@chakra-ui/react'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import FormFieldWrapper from '..'
+import ALFieldset from '..'
+import { ALFieldsetProps } from '../ALFieldset.types'
 
-const props: PropsOf<typeof FormFieldWrapper> = {
+const props: ALFieldsetProps = {
   label: 'Bill the Label',
   name: 'bill',
 }
 
-describe('FormFieldWrapper', () => {
+describe('ALFieldset', () => {
   it('should render a label only by default', () => {
-    render(<FormFieldWrapper label={props.label} name={props.name} />)
+    render(<ALFieldset label={props.label} name={props.name} />)
     const label = screen.getByText(props.label)
     expect(label).toBeVisible()
     expect(label.getAttribute('for')).toBe(props.name)
@@ -18,9 +18,9 @@ describe('FormFieldWrapper', () => {
 
   it('should render children', () => {
     render(
-      <FormFieldWrapper label={props.label} name={props.name}>
+      <ALFieldset label={props.label} name={props.name}>
         hello
-      </FormFieldWrapper>,
+      </ALFieldset>,
     )
     expect(screen.getByText('hello')).toBeVisible()
   })

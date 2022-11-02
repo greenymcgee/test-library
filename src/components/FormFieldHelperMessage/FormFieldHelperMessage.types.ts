@@ -1,4 +1,6 @@
+import { ALFieldsetProps } from '../ALFieldset/ALFieldset.types'
+
 export interface FormFieldHelperMessageProps {
-  error: undefined | null | false | string
-  helperText: string | undefined
+  error: ALFieldsetProps['error']
+  helperText: ALFieldsetProps['helperText']
 }

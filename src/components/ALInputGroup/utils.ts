@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react'
-import { FormFieldWrapperProps } from '../FormFieldWrapper/FormFieldWrapper.types'
+import { ALFieldsetProps } from '../ALFieldset/ALFieldset.types'
 import { ALInputType } from './ALInputGroup.types'
 
 type CharacterEvent = ChangeEvent<HTMLInputElement>
@@ -31,7 +31,7 @@ export function removeIgnoredInputCharacters(type: ALInputType) {
   }
 }
 
-export function inputStyles(error: FormFieldWrapperProps['error']): {
+export function inputStyles(error: ALFieldsetProps['error']): {
   inputBackgroundColor: string
   inputBorderColor: string
   toggleIconFill: string

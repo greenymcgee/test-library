@@ -1,4 +1,4 @@
-export interface FormFieldWrapperProps {
+export interface ALFieldsetProps {
   error?: null | false | string
   helperText?: string
   isRequired?: boolean

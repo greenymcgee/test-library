@@ -2,7 +2,7 @@ import { Input as ChakraInput, InputGroup } from '@chakra-ui/react'
 import React, { ReactElement, useState } from 'react'
 import { compose, noop } from '@above-lending/prelude'
 import { ALInputGroupProps } from './ALInputGroup.types'
-import FormFieldWrapper from '../FormFieldWrapper'
+import FormFieldWrapper from '../ALFieldset'
 import { PasswordToggleIcon } from './PasswordToggleIcon'
 import {
   inputAutoComplete,

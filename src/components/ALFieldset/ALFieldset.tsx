@@ -1,11 +1,11 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 import { Flex, FormControl, FormLabel } from '@chakra-ui/react'
 import Tooltip from '../Tooltip'
-import { FormFieldWrapperProps } from './FormFieldWrapper.types'
+import { ALFieldsetProps } from './ALFieldset.types'
 import SecondaryLabel from '../SecondaryLabel'
 import FormFieldHelperMessage from '../FormFieldHelperMessage/FormFieldHelperMessage'
 
-export default function FormFieldWrapper({
+export default function ALFieldset({
   children,
   error,
   helperText,
@@ -14,7 +14,7 @@ export default function FormFieldWrapper({
   secondaryLabel,
   tooltipMessage,
   ...options
-}: PropsWithChildren<FormFieldWrapperProps>): ReactElement {
+}: PropsWithChildren<ALFieldsetProps>): ReactElement {
   const isInvalid = Boolean(error)
 
   return (
