@@ -9,7 +9,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "npm exec -- rimraf dist && rollup -c --bundleConfigAsCjs",
     "format": "prettier 'src/**/*.{js,jsx,ts,tsx}' --write",
     "lint": "npx eslint src --ext .ts,.tsx --max-warnings=0",
     "test:unit": "jest --coverage --runInBand",
