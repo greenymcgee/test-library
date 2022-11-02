@@ -5,5 +5,4 @@ export interface ALFieldsetProps {
     label: string;
     name: string;
     secondaryLabel?: string;
-    tooltipMessage?: string;
 }

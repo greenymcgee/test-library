@@ -1,5 +1,5 @@
-import { PropsWithChildren, ReactElement, ReactNode } from 'react';
-import { InputProps, BoxProps, TextProps } from '@chakra-ui/react';
+import { PropsWithChildren, ReactElement } from 'react';
+import { InputProps, TextProps } from '@chakra-ui/react';
 
 interface ALFieldsetProps {
     error?: null | false | string;
@@ -8,10 +8,9 @@ interface ALFieldsetProps {
     label: string;
     name: string;
     secondaryLabel?: string;
-    tooltipMessage?: string;
 }
 
-declare function ALFieldset({ children, error, helperText, label, name, secondaryLabel, tooltipMessage, ...options }: PropsWithChildren<ALFieldsetProps>): ReactElement;
+declare function ALFieldset({ children, error, helperText, label, name, secondaryLabel, ...options }: PropsWithChildren<ALFieldsetProps>): ReactElement;
 
 declare type ALInputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
 interface ALInputGroupProps extends ALFieldsetProps {
@@ -20,12 +19,6 @@ interface ALInputGroupProps extends ALFieldsetProps {
 }
 
 declare function ALInputGroup({ error, label, name, type, inputProps, ...options }: ALInputGroupProps): ReactElement;
-
-interface TooltipProps extends BoxProps {
-    message: string | ReactNode;
-}
-
-declare function Tooltip({ message, ...options }: TooltipProps): ReactElement;
 
 interface ALFieldsetSecondaryLabelProps extends TextProps {
     label: string | undefined;
@@ -40,4 +33,4 @@ interface ALFieldsetBelowControlProps {
 
 declare function ALFieldsetBelowControl({ error, helperText, }: ALFieldsetBelowControlProps): ReactElement;
 
-export { ALFieldset, ALFieldsetBelowControl, ALFieldsetSecondaryLabel, ALInputGroup, Tooltip };
+export { ALFieldset, ALFieldsetBelowControl, ALFieldsetSecondaryLabel, ALInputGroup };

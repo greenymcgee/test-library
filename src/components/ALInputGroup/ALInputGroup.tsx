@@ -2,7 +2,7 @@ import { Input as ChakraInput, InputGroup } from '@chakra-ui/react'
 import React, { ReactElement, useState } from 'react'
 import { compose, noop } from '@above-lending/prelude'
 import { ALInputGroupProps } from './ALInputGroup.types'
-import FormFieldWrapper from '../ALFieldset'
+import ALFieldset from '../ALFieldset'
 import { PasswordToggleIcon } from './PasswordToggleIcon'
 import {
   inputAutoComplete,
@@ -28,7 +28,7 @@ export default function ALInputGroup({
     inputStyles(error)
 
   return (
-    <FormFieldWrapper error={error} label={label} name={name} {...options}>
+    <ALFieldset error={error} label={label} name={name} {...options}>
       <InputGroup>
         <ChakraInput
           autoComplete={inputAutoComplete(inputProps.autoComplete)}
@@ -55,6 +55,6 @@ export default function ALInputGroup({
           type={type}
         />
       </InputGroup>
-    </FormFieldWrapper>
+    </ALFieldset>
   )
 }
