@@ -8,9 +8,10 @@ interface ALFieldsetProps {
     label: string;
     name: string;
     secondaryLabel?: string;
+    warning?: string;
 }
 
-declare function ALFieldset({ children, error, helperText, label, name, secondaryLabel, ...options }: PropsWithChildren<ALFieldsetProps>): ReactElement;
+declare function ALFieldset({ children, error, helperText, label, name, secondaryLabel, warning, ...options }: PropsWithChildren<ALFieldsetProps>): ReactElement;
 
 declare type ALInputType = 'currency' | 'email' | 'number' | 'password' | 'phone' | 'text';
 interface ALInputGroupProps extends ALFieldsetProps {
@@ -29,8 +30,9 @@ declare function ALFieldsetSecondaryLabel({ label, ...options }: ALFieldsetSecon
 interface ALFieldsetBelowControlProps {
     error: ALFieldsetProps['error'];
     helperText: ALFieldsetProps['helperText'];
+    warning: ALFieldsetProps['warning'];
 }
 
-declare function ALFieldsetBelowControl({ error, helperText, }: ALFieldsetBelowControlProps): ReactElement;
+declare function ALFieldsetBelowControl({ error, helperText, warning, }: ALFieldsetBelowControlProps): ReactElement;
 
 export { ALFieldset, ALFieldsetBelowControl, ALFieldsetSecondaryLabel, ALInputGroup };

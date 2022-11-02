@@ -5,4 +5,5 @@ export interface ALFieldsetProps {
     label: string;
     name: string;
     secondaryLabel?: string;
+    warning?: string;
 }

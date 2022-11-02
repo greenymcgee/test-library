@@ -2,11 +2,12 @@ import { FormControl } from '@chakra-ui/react'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
 import ALFieldsetBelowControl from '..'
-import { ALFieldsetBelowControlProps } from '../ALFieldsetBelowControl.type'
+import { ALFieldsetBelowControlProps } from '../ALFieldsetBelowControl.types'
 
 const props: ALFieldsetBelowControlProps = {
   error: 'an error',
   helperText: 'help me',
+  warning: 'a warning',
 }
 
 describe('ALFieldsetBelowControl', () => {
@@ -16,6 +17,7 @@ describe('ALFieldsetBelowControl', () => {
         <ALFieldsetBelowControl
           error={props.error}
           helperText={props.helperText}
+          warning={undefined}
         />
       </FormControl>,
     )
@@ -28,9 +30,26 @@ describe('ALFieldsetBelowControl', () => {
   it('should render a helper message if one is given, but no error', () => {
     render(
       <FormControl isInvalid={false}>
-        <ALFieldsetBelowControl error={null} helperText={props.helperText} />
+        <ALFieldsetBelowControl
+          error={null}
+          helperText={props.helperText}
+          warning={undefined}
+        />
       </FormControl>,
     )
     expect(screen.getByText(props.helperText as string)).toBeVisible()
+  })
+
+  it('should render a warning when given', () => {
+    render(
+      <FormControl isInvalid={false}>
+        <ALFieldsetBelowControl
+          error={null}
+          helperText={props.helperText}
+          warning={props.warning}
+        />
+      </FormControl>,
+    )
+    expect(screen.getByText(props.warning as string)).toBeVisible()
   })
 })

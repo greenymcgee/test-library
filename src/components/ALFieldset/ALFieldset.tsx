@@ -11,6 +11,7 @@ export default function ALFieldset({
   label,
   name,
   secondaryLabel,
+  warning,
   ...options
 }: PropsWithChildren<ALFieldsetProps>): ReactElement {
   const isInvalid = Boolean(error)
@@ -33,7 +34,11 @@ export default function ALFieldset({
         <SecondaryLabel label={secondaryLabel} />
       </Flex>
       {children}
-      <ALFieldsetBelowControl error={error} helperText={helperText} />
+      <ALFieldsetBelowControl
+        error={error}
+        helperText={helperText}
+        warning={warning}
+      />
     </FormControl>
   )
 }

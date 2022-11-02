@@ -1,4 +1,4 @@
-import { InputProps as ChakraInputProps } from '@chakra-ui/react'
+import { InputProps } from '@chakra-ui/react'
 import { ALFieldsetProps } from '../ALFieldset/ALFieldset.types'
 
 export type ALInputType =
@@ -11,5 +11,5 @@ export type ALInputType =
 
 export interface ALInputGroupProps extends ALFieldsetProps {
   type?: ALInputType
-  inputProps?: Omit<ChakraInputProps, 'type' | 'name'>
+  inputProps?: Omit<InputProps, 'type' | 'name'>
 }

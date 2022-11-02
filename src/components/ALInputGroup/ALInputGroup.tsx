@@ -31,6 +31,7 @@ export default function ALInputGroup({
     <ALFieldset error={error} label={label} name={name} {...options}>
       <InputGroup>
         <ChakraInput
+          _focus={{ outline: 'blue.500' }}
           autoComplete={inputAutoComplete(inputProps.autoComplete)}
           backgroundColor={inputBackgroundColor}
           border="1px solid"
@@ -41,7 +42,6 @@ export default function ALInputGroup({
           lineHeight="6"
           name={name}
           onChange={handleChange}
-          outline="none"
           px="2"
           py="1"
           type={inputType(isPasswordShowing, type)}
