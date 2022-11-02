@@ -1,11 +1,11 @@
 import { Box, FormErrorMessage, FormHelperText } from '@chakra-ui/react'
 import React, { ReactElement } from 'react'
-import { FormFieldHelperMessageProps } from './FormFieldHelperMessage.types'
+import { ALFieldsetBelowControlProps } from './ALFieldsetBelowControl.type'
 
-export default function FormFieldHelperMessage({
+export default function ALFieldsetBelowControl({
   error,
   helperText,
-}: FormFieldHelperMessageProps): ReactElement {
+}: ALFieldsetBelowControlProps): ReactElement {
   if (error) {
     return (
       <FormErrorMessage color="red.500" fontSize="xs" lineHeight="small">

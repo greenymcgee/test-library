@@ -3,7 +3,7 @@ import { Flex, FormControl, FormLabel } from '@chakra-ui/react'
 import Tooltip from '../Tooltip'
 import { ALFieldsetProps } from './ALFieldset.types'
 import SecondaryLabel from '../SecondaryLabel'
-import FormFieldHelperMessage from '../FormFieldHelperMessage/FormFieldHelperMessage'
+import ALFieldsetBelowControl from '../ALFieldsetBelowControl'
 
 export default function ALFieldset({
   children,
@@ -36,7 +36,7 @@ export default function ALFieldset({
         <Tooltip message={tooltipMessage} marginLeft="3" />
       </Flex>
       {children}
-      <FormFieldHelperMessage error={error} helperText={helperText} />
+      <ALFieldsetBelowControl error={error} helperText={helperText} />
     </FormControl>
   )
 }

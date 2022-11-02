@@ -33,11 +33,11 @@ interface SecondaryLabelProps extends TextProps {
 
 declare function SecondaryLabel({ label, ...options }: SecondaryLabelProps): ReactElement;
 
-interface FormFieldHelperMessageProps {
-    error: undefined | null | false | string;
-    helperText: string | undefined;
+interface ALFieldsetBelowControlProps {
+    error: ALFieldsetProps['error'];
+    helperText: ALFieldsetProps['helperText'];
 }
 
-declare function FormFieldHelperMessage({ error, helperText, }: FormFieldHelperMessageProps): ReactElement;
+declare function ALFieldsetBelowControl({ error, helperText, }: ALFieldsetBelowControlProps): ReactElement;
 
-export { ALFieldset, ALInputGroup, FormFieldHelperMessage, SecondaryLabel, Tooltip };
+export { ALFieldset, ALFieldsetBelowControl, ALInputGroup, SecondaryLabel, Tooltip };
