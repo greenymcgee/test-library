@@ -14,10 +14,8 @@ export default function ALFieldset({
   warning,
   ...options
 }: PropsWithChildren<ALFieldsetProps>): ReactElement {
-  const isInvalid = Boolean(error)
-
   return (
-    <FormControl as="fieldset" isInvalid={isInvalid} {...options}>
+    <FormControl as="fieldset" isInvalid={Boolean(error)} {...options}>
       <Flex>
         <FormLabel
           color="inherit"
