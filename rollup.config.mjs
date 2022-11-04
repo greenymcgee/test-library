@@ -5,8 +5,14 @@ import { terser } from '@el3um4s/rollup-plugin-terser'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import dts from 'rollup-plugin-dts'
+import { readFileSync } from 'node:fs'
 
-const packageJson = require('./package.json')
+// Use import.meta.url to make the path relative to the current source file
+// instead of process.cwd() For more info:
+// https://nodejs.org/docs/latest-v16.x/api/esm.html#importmetaurl
+const packageJson = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url)),
+)
 
 export default [
   {
@@ -46,6 +52,6 @@ export default [
     input: 'dist/esm/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     external: [Object.keys(packageJson.peerDependencies)],
-    plugins: [dts.default()],
+    plugins: [dts()],
   },
 ]

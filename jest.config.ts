@@ -14,6 +14,7 @@ module.exports = {
     '!src/**/*.+(story|stories).{js,jsx,ts,tsx}',
     '!src/index.ts',
     '!src/components/index.ts',
+    '!src/theme/**',
   ],
   coverageReporters: ['lcov', 'text', 'text-summary', 'html'],
   coverageThreshold: {

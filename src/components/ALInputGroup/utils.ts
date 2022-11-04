@@ -32,20 +32,17 @@ export function removeIgnoredInputCharacters(type: ALInputType) {
 }
 
 export function inputStyles(error: ALFieldsetProps['error']): {
-  inputBackgroundColor: string
   inputBorderColor: string
   toggleIconFill: string
 } {
   if (error) {
     return {
-      inputBackgroundColor: 'red.200',
       inputBorderColor: 'red.500',
       toggleIconFill: 'red.500',
     }
   }
 
   return {
-    inputBackgroundColor: 'gray.200',
     inputBorderColor: 'gray.400',
     toggleIconFill: 'gray.500',
   }

@@ -24,20 +24,24 @@ export default function ALInputGroup({
   const handleChange = inputProps.onChange
     ? compose(inputProps.onChange, removeIgnoredInputCharacters(type))
     : noop
-  const { inputBackgroundColor, inputBorderColor, toggleIconFill } =
-    inputStyles(error)
+  const { inputBorderColor, toggleIconFill } = inputStyles(error)
 
   return (
     <ALFieldset error={error} label={label} name={name} {...options}>
       <InputGroup>
         <ChakraInput
-          _focus={{ outline: 'blue.500' }}
+          _focus={{
+            outline: '1px solid',
+            outlineColor: 'blue.500',
+            outlineOffset: '1px',
+          }}
           autoComplete={inputAutoComplete(inputProps.autoComplete)}
-          backgroundColor={inputBackgroundColor}
           border="1px solid"
           borderColor={inputBorderColor}
+          borderRadius="none"
           data-testid={`${name}-input`}
           fontSize="md"
+          height="auto"
           id={name}
           lineHeight="6"
           name={name}

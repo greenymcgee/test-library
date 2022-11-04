@@ -35,4 +35,6 @@ interface ALFieldsetBelowControlProps {
 
 declare function ALFieldsetBelowControl({ error, helperText, warning, }: ALFieldsetBelowControlProps): ReactElement;
 
-export { ALFieldset, ALFieldsetBelowControl, ALFieldsetSecondaryLabel, ALInputGroup };
+declare const theme: Record<string, any>;
+
+export { ALFieldset, ALFieldsetBelowControl, ALFieldsetSecondaryLabel, ALInputGroup, theme };

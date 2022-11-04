@@ -4,7 +4,7 @@
   "eslint.workingDirectories": ["."],
   "files.exclude": {
     "dist": true,
-    "rollup.config.js": true,
+    "rollup.config.mjs": true,
     ".eslintrc": true,
     ".git": true,
     ".npmrc": true,

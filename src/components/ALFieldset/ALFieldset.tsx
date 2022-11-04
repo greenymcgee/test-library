@@ -25,6 +25,9 @@ export default function ALFieldset({
           fontWeight="medium"
           htmlFor={name}
           lineHeight="small"
+          mb={1}
+          mt={0}
+          mx={0}
           overflow="hidden"
           textOverflow="ellipsis"
           whiteSpace="nowrap"

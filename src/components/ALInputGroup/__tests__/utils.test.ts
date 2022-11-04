@@ -46,7 +46,6 @@ describe('Input utils', () => {
     it('should return error styles if the error is given', () => {
       const result = inputStyles('yo')
       expect(result).toEqual({
-        inputBackgroundColor: 'red.200',
         inputBorderColor: 'red.500',
         toggleIconFill: 'red.500',
       })
@@ -55,7 +54,6 @@ describe('Input utils', () => {
     it('should return default styles without the error', () => {
       const result = inputStyles(undefined)
       expect(result).toEqual({
-        inputBackgroundColor: 'gray.200',
         inputBorderColor: 'gray.400',
         toggleIconFill: 'gray.500',
       })
