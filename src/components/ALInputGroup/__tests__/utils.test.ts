@@ -1,11 +1,5 @@
 import { ChangeEvent } from 'react'
-import {
-  inputAutoComplete,
-  inputStyles,
-  inputType,
-  removeIgnoredInputCharacters,
-  togglePasswordShowing,
-} from '../utils'
+import { inputStyles, inputType, removeIgnoredInputCharacters } from '../utils'
 
 describe('Input utils', () => {
   describe('removeIgnoredInputCharacters', () => {
@@ -78,25 +72,6 @@ describe('Input utils', () => {
     it('should return the given type if no inputCharacterType matches', () => {
       const result = inputType(false, 'password')
       expect(result).toEqual('password')
-    })
-  })
-
-  describe('inputAutoComplete', () => {
-    it('should return the given autoComplete', () => {
-      const result = inputAutoComplete('off')
-      expect(result).toBe('off')
-    })
-
-    it('should return a default of "on"', () => {
-      const result = inputAutoComplete(undefined)
-      expect(result).toBe('on')
-    })
-  })
-
-  describe('togglePasswordShowing', () => {
-    it('should flip the boolean', () => {
-      const result = togglePasswordShowing(true)
-      expect(result).toEqual(false)
     })
   })
 })

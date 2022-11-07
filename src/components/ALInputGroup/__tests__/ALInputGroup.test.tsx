@@ -17,12 +17,8 @@ describe('ALInputGroup', () => {
     expect(input).toBeVisible()
     expect(input.getAttribute('id')).toBe(props.name)
     expect(input.getAttribute('name')).toBe(props.name)
-  })
-
-  it('should provide a default for autoComplete', () => {
-    render(<ALInputGroup {...props} />)
-    const input = screen.getByTestId(testId)
     expect(input.getAttribute('autocomplete')).toBe('on')
+    expect(input.getAttribute('type')).toBe('text')
   })
 
   it('should pass the autoComplete prop', () => {
@@ -44,10 +40,11 @@ describe('ALInputGroup', () => {
     act(() => {
       fireEvent.click(screen.getByLabelText('Show Password'))
     })
+    expect(input.getAttribute('type')).toBe('text')
     expect(screen.getByLabelText('Hide Password')).toBeVisible()
   })
 
-  it('should pass the onChange prop', () => {
+  it('should call the given onChange when a change occurs', () => {
     render(<ALInputGroup inputProps={{ onChange }} {...props} />)
     const input = screen.getByTestId(testId)
     act(() => {

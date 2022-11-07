@@ -56,11 +56,3 @@ export function inputType(
 
   return inputCharacterTypes[type] ?? type
 }
-
-export function inputAutoComplete(autoComplete: string | undefined): string {
-  return autoComplete ?? 'on'
-}
-
-export function togglePasswordShowing(showing: boolean): boolean {
-  return !showing
-}

@@ -9,6 +9,4 @@ export declare function inputStyles(error: ALFieldsetProps['error']): {
     toggleIconFill: string;
 };
 export declare function inputType(isPasswordShowing: boolean, type: ALInputType): ALInputType;
-export declare function inputAutoComplete(autoComplete: string | undefined): string;
-export declare function togglePasswordShowing(showing: boolean): boolean;
 export {};
