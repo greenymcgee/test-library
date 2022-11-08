@@ -1,16 +1,10 @@
 import { Input as ChakraInput, InputGroup } from '@chakra-ui/react'
-import React, { Dispatch, ReactElement, SetStateAction, useState } from 'react'
+import React, { ReactElement, useCallback, useState } from 'react'
 import { compose, noop } from '@above-lending/prelude'
 import { ALInputGroupProps } from './ALInputGroup.types'
 import ALFieldset from '../ALFieldset'
 import { PasswordToggleIcon } from './PasswordToggleIcon'
 import { inputStyles, inputType, removeIgnoredInputCharacters } from './utils'
-
-function togglePasswordShowing(
-  setPasswordShowing: Dispatch<SetStateAction<boolean>>,
-) {
-  return (): void => setPasswordShowing(prev => !prev)
-}
 
 export default function ALInputGroup({
   error,
@@ -25,6 +19,11 @@ export default function ALInputGroup({
     ? compose(inputProps.onChange, removeIgnoredInputCharacters(type))
     : noop
   const { inputBorderColor, toggleIconFill } = inputStyles(error)
+
+  const togglePasswordShowing = useCallback(
+    () => setPasswordShowing(prev => !prev),
+    [],
+  )
 
   return (
     <ALFieldset error={error} label={label} name={name} {...options}>
@@ -55,7 +54,7 @@ export default function ALInputGroup({
         <PasswordToggleIcon
           ariaLabel={`${isPasswordShowing ? 'Hide' : 'Show'} Password`}
           fill={toggleIconFill}
-          onClick={togglePasswordShowing(setPasswordShowing)}
+          onClick={togglePasswordShowing}
           type={type}
         />
       </InputGroup>
