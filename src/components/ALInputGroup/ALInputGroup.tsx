@@ -15,9 +15,11 @@ export default function ALInputGroup({
   ...options
 }: ALInputGroupProps): ReactElement {
   const [isPasswordShowing, setPasswordShowing] = useState(false)
-  const handleChange = inputProps.onChange
-    ? compose(inputProps.onChange, removeIgnoredInputCharacters(type))
-    : noop
+  const handleChange = compose(
+    inputProps.onChange ?? noop,
+    removeIgnoredInputCharacters(type),
+  )
+
   const { inputBorderColor, toggleIconFill } = inputStyles(error)
 
   const togglePasswordShowing = useCallback(
